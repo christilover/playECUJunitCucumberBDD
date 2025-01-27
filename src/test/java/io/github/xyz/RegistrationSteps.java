@@ -14,7 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import page_objects.RegistrationConfirmationPage;
+import page_objects.RegistrationConfirmationPagePOM;
 import page_objects.RegistrationPage;
+import page_objects.RegistrationPagePOM;
 import util.LogUtil;
 
 import java.time.Duration;
@@ -31,8 +33,8 @@ public class RegistrationSteps {
     static final Logger log = getLogger(lookup().lookupClass());
 
     private Faker faker = new Faker();  // Instantiate Faker
-   private static RegistrationPage registrationPage;
-    RegistrationConfirmationPage confirmationPage;// = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
+   private static RegistrationPagePOM registrationPage;
+    RegistrationConfirmationPagePOM confirmationPage;// = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
 
     //  static WebDriver driver;
 
@@ -48,7 +50,7 @@ public class RegistrationSteps {
 
         LogUtil.logMethodEntry(); // Log method entry
 
-        registrationPage = new RegistrationPage(WebTestSupport.currentDriver());
+        registrationPage = new RegistrationPagePOM(WebTestSupport.currentDriver());
         String url = "https://membership.basketballengland.co.uk/NewSupporterAccount";
         registrationPage.visit(url);
     }
@@ -139,7 +141,7 @@ public class RegistrationSteps {
         LogUtil.logMethodEntry(); // Log method entry
 
         // Verify that the registration confirmation message is displayed
-        confirmationPage = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
+        confirmationPage = new RegistrationConfirmationPagePOM(WebTestSupport.currentDriver());
 
         boolean isMessageDisplayed = confirmationPage.isRegistrationConfirmationMessageDisplayed();
         Assertions.assertTrue(isMessageDisplayed, "Expected confirmation message to be displayed.");

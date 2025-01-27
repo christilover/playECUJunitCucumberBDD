@@ -43,7 +43,7 @@ Business Need: Registration Functionality
 
 
 
-c
+
     Scenario Outline: Registration fails when terms and conditions are not accepted
       When I fill in "<FirstName>", "<LastName>", "<Email>", "<ConfirmEmail>", "<Password>", "<PasswordConfirm>", and "<DateOfBirth>"
       And I accept the terms and conditions "<AcceptTerms>"
