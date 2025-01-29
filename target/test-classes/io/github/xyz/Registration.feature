@@ -43,13 +43,6 @@ Business Need: Registration Functionality
 
 
 
-    Scenario Outline: Registration fails due to mismatched or missing field values
-
-      Examples:
-        | FirstName | LastName | Email       | ConfirmEmail | Password  | PasswordConfirm | DateOfBirth | AcceptTerms | AgeAccept | AgreeToCodeOfEthics | ExpectedResult                       |
-        | bb        | cc       | a@gmail.se  |              | password1 | password1       | 12/31/1987  | true        | true      | true                | Confirm Email Address does not match |
-        | John      | Doe      | va@gmail.se | va@gmail.se  | abc123    | xyz789          | 01/01/2000  | true        | true      | true                | PASSWORD DID NOT MATCH               |
-
 
     Scenario Outline: Registration fails when terms and conditions are not accepted
       When I fill in "<FirstName>", "<LastName>", "<Email>", "<ConfirmEmail>", "<Password>", "<PasswordConfirm>", and "<DateOfBirth>"

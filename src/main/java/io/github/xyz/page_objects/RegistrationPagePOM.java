@@ -1,4 +1,4 @@
-package page_objects;
+package io.github.xyz.page_objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

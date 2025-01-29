@@ -1,4 +1,4 @@
-package page_objects;
+package io.github.xyz.page_objects;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,7 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-import util.LogUtil;
+import io.github.xyz.util.LogUtil;
 
 import java.time.Duration;
 

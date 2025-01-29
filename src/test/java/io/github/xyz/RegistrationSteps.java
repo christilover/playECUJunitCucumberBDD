@@ -9,15 +9,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.datafaker.Faker;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-import page_objects.RegistrationConfirmationPage;
-import page_objects.RegistrationConfirmationPagePOM;
-import page_objects.RegistrationPage;
-import page_objects.RegistrationPagePOM;
-import util.LogUtil;
+import io.github.xyz.page_objects.RegistrationConfirmationPagePOM;
+import io.github.xyz.page_objects.RegistrationPagePOM;
+import io.github.xyz.util.LogUtil;
 
 import java.time.Duration;
 import java.util.List;
@@ -34,12 +31,12 @@ public class RegistrationSteps {
 
     private Faker faker = new Faker();  // Instantiate Faker
    private static RegistrationPagePOM registrationPage;
-    RegistrationConfirmationPagePOM confirmationPage;// = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
+    RegistrationConfirmationPagePOM confirmationPage;//
 
     //  static WebDriver driver;
 
-    private RegistrationPage registrationPage() {
-        return new RegistrationPage(WebTestSupport.currentDriver());
+    private RegistrationPagePOM registrationPage() {
+        return new RegistrationPagePOM(WebTestSupport.currentDriver());
     }
 
     @Given("I am on the registration page")
@@ -186,7 +183,6 @@ public class RegistrationSteps {
         LogUtil.logMethodEntry(); // Log method entry
         log.debug("Starting validation of the registration confirmation message...");
 
-         confirmationPage = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
         boolean isConfirmationMessageDisplayed = confirmationPage.isRegistrationConfirmationMessageDisplayed();
         Assertions.assertTrue(isConfirmationMessageDisplayed, "The registration confirmation message was not displayed");
 
@@ -210,14 +206,14 @@ public class RegistrationSteps {
 
 //        Assertions.assertTrue(confirmationPage.isRegistrationSuccessful(), "Registration was successful!");
 
-        //confirmationPage = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
+        //confirmationPage = new (WebTestSupport.currentDriver());
 
         // Wait for the "GO TO MY LOCKER" button
        // confirmationPage.waitForGoToMyLockerButton();
 
         // Click the button to confirm successful registration
         // confirmationPage.clickGoToMyLockerButton();
-        //confirmationPage = new RegistrationConfirmationPage(WebTestSupport.currentDriver());
+        //confirmationPage = new (WebTestSupport.currentDriver());
         //confirmationPage.waitForGoToMyLockerButton();
         //confirmationPage.clickGoToMyLockerButton();
 

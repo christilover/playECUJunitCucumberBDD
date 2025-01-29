@@ -1,5 +1,5 @@
-D:\ECU\Assignment\ECUJunitCucumber\src\main\java\abc\xyz\config\Configuration.java
-D:\ECU\Assignment\ECUJunitCucumber\src\main\java\abc\xyz\config\ConfigurationManager.java
-D:\ECU\Assignment\ECUJunitCucumber\src\main\java\page_objects\RegistrationConfirmationPage.java
-D:\ECU\Assignment\ECUJunitCucumber\src\main\java\page_objects\RegistrationPage.java
-D:\ECU\Assignment\ECUJunitCucumber\src\main\java\util\LogUtil.java
+D:\ECU\Assignment\playECUJunitCucumber\src\main\java\io\github\xyz\Configuration.java
+D:\ECU\Assignment\playECUJunitCucumber\src\main\java\io\github\xyz\ConfigurationManager.java
+D:\ECU\Assignment\playECUJunitCucumber\src\main\java\io\github\xyz\page_objects\RegistrationConfirmationPagePOM.java
+D:\ECU\Assignment\playECUJunitCucumber\src\main\java\io\github\xyz\page_objects\RegistrationPagePOM.java
+D:\ECU\Assignment\playECUJunitCucumber\src\main\java\io\github\xyz\util\LogUtil.java

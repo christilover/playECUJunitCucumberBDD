@@ -1,5 +1,5 @@
-page_objects\RegistrationConfirmationPage.class
-page_objects\RegistrationPage.class
-abc\xyz\config\ConfigurationManager.class
-util\LogUtil.class
-abc\xyz\config\Configuration.class
+io\github\xyz\Configuration.class
+io\github\xyz\ConfigurationManager.class
+io\github\xyz\util\LogUtil.class
+io\github\xyz\page_objects\RegistrationConfirmationPagePOM.class
+io\github\xyz\page_objects\RegistrationPagePOM.class
