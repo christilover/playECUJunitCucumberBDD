@@ -30,4 +30,5 @@ jobs:
           restore-keys: maven-
 
       - name: Build and Run Tests
-        run: mvn clean test
+        run: mvn clean test > result.log; tail -n 10 result.log
+
