@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RegistrationPagePOM {
+public class RegistrationPagePOM extends BasePagePOM {
 
-    private final WebDriver driver;
-    private final WebDriverWait wait;
+  //  private final WebDriver driver;
+  //  private final WebDriverWait wait;
 
     // Using @FindBy annotations to locate elements
     @FindBy(css = "#dp")
@@ -53,76 +53,66 @@ public class RegistrationPagePOM {
 
     @FindBy(css = ".field-validation-error.warning span")
     private List<WebElement> errorMessages;
-
     public RegistrationPagePOM(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        // Initialize the WebElements using PageFactory
-        PageFactory.initElements(driver, this);
+        super(driver, 10);
     }
 
     public void visit(String url) {
         driver.get(url);
     }
 
-    private void clearAndSendKeys(WebElement element, String text) {
-        wait.until(ExpectedConditions.visibilityOf(element)).clear();
-        element.sendKeys(text);
-    }
-
     public void setDateOfBirth(String dob) {
-        clearAndSendKeys(dateOfBirth, dob);
+        sendKeys(dateOfBirth, dob);
     }
 
     public void setFirstName(String fname) {
-        clearAndSendKeys(firstName, fname);
+        sendKeys(firstName, fname);
     }
 
     public void setLastName(String lname) {
-        clearAndSendKeys(lastName, lname);
+        sendKeys(lastName, lname);
     }
 
     public void setEmail(String emailAddress) {
-        clearAndSendKeys(email, emailAddress);
+        sendKeys(email, emailAddress);
     }
 
     public void setConfirmEmail(String emailAddress) {
-        clearAndSendKeys(confirmEmail, emailAddress);
+        sendKeys(confirmEmail, emailAddress);
     }
 
     public void setPassword(String pwd) {
-        clearAndSendKeys(password, pwd);
+        sendKeys(password, pwd);
     }
 
     public void setConfirmPassword(String pwd) {
-        clearAndSendKeys(confirmPassword, pwd);
+        sendKeys(confirmPassword, pwd);
     }
 
     public void acceptTermsAndConditions() {
-        wait.until(ExpectedConditions.elementToBeClickable(termsCheckbox)).click();
+        clickElement(termsCheckbox);
     }
 
     public void confirmAgeResponsibility() {
-        wait.until(ExpectedConditions.elementToBeClickable(ageResponsibilityCheckbox)).click();
+        clickElement(ageResponsibilityCheckbox);
     }
 
     public void agreeToCodeOfEthics() {
-        wait.until(ExpectedConditions.elementToBeClickable(ethicsCheckbox)).click();
+        clickElement(ethicsCheckbox);
     }
 
     public void clickJoinButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(joinButton)).click();
+        clickElement(joinButton);
     }
 
     public List<String> missingFields() {
-        // Collect error messages and filter based on the required conditions
         return errorMessages.stream()
-                .map(WebElement::getText) // Get the error message text
-                .map(String::toLowerCase) // Convert to lowercase for case-insensitive comparison
+                .map(WebElement::getText)
+                .map(String::toLowerCase)
                 .filter(errorText -> errorText.contains("is required") || errorText.contains(" not match"))
                 .collect(Collectors.toList());
     }
+
 
     public List<String> checkUnselectedCheckboxes() {
         List<String> unselectedCheckboxes = new ArrayList<>();
@@ -139,4 +129,5 @@ public class RegistrationPagePOM {
 
         return unselectedCheckboxes;
     }
+
 }

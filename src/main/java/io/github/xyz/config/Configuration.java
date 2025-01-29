@@ -1,4 +1,4 @@
-package io.github.xyz;
+package io.github.xyz.config;
 
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.Config.LoadPolicy;

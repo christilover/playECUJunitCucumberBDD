@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 
 import static java.lang.invoke.MethodHandles.lookup;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.slf4j.LoggerFactory.getLogger;
 
 //@Execution(ExecutionMode.CONCURRENT)
@@ -30,8 +29,9 @@ public class RegistrationSteps {
     static final Logger log = getLogger(lookup().lookupClass());
 
     private Faker faker = new Faker();  // Instantiate Faker
-   private static RegistrationPagePOM registrationPage;
+    private static RegistrationPagePOM registrationPage;
     RegistrationConfirmationPagePOM confirmationPage;//
+
 
     //  static WebDriver driver;
 
@@ -120,14 +120,6 @@ public class RegistrationSteps {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body"))); // Wait until the body element is visible
         registrationPage.clickJoinButton(); // Click the Join button
 
-        // Wait for all elements to be visible on the page (adjust the locator as per your page structure)
-        //WebDriverWait wait = new WebDriverWait(WebTestSupport.currentDriver(), Duration.ofSeconds(13)); // Wait for 13 seconds
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body"))); // Wait until the body element is visible
-
-
-        // Wait for the error messages to become visible
-        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Wait up to 10 seconds
-        //wait.until(ExpectedConditions.visibilityOfAllElements(registrationPage.getErrorMessages())); // Use the getter method
         LogUtil.logMethodExit();
     }
 
@@ -176,89 +168,6 @@ public class RegistrationSteps {
         assertThat(checkUnselectedCheckboxes).contains(expectedResult);
         LogUtil.logMethodExit();
     }
-
- /*
-    @Then("I should see the registration confirmation {string}")
-    public void iShouldSeeTheRegistrationConfirmation(String expectedConfirmationMessage) {
-        LogUtil.logMethodEntry(); // Log method entry
-        log.debug("Starting validation of the registration confirmation message...");
-
-        boolean isConfirmationMessageDisplayed = confirmationPage.isRegistrationConfirmationMessageDisplayed();
-        Assertions.assertTrue(isConfirmationMessageDisplayed, "The registration confirmation message was not displayed");
-
-        //confirmationPage.clickGoToMyLockerButton();
-        //confirmationPage.waitForGoToMyLockerButton();
-        // Wait until the confirmation message is visible
-
-         // String actualConfirmationMessage = confirmationPage.getRegistrationConfirmationMessage().getText();
-       //log.debug("<<<<<<<<<<<<< Actual confirmation message: {}", actualConfirmationMessage);
-
-
-        // Validate if the actual message matches the expected result
-       // Assertions.assertEquals(expectedConfirmationMessage, actualConfirmationMessage, "Registration confirmation message does not match expected result.");
-
-
-        // confirmationPage.waitForGoToMyLockerButton();
-      //  confirmationPage.clickGoToMyLockerButton();
-
-        //  String actualConfirmationMessage = confirmationPage.getConfirmationMsg();
-        //Assertions.assertEquals(expectedConfirmationMessage, actualConfirmationMessage, "Registration confirmation message does not match!");
-
-//        Assertions.assertTrue(confirmationPage.isRegistrationSuccessful(), "Registration was successful!");
-
-        //confirmationPage = new (WebTestSupport.currentDriver());
-
-        // Wait for the "GO TO MY LOCKER" button
-       // confirmationPage.waitForGoToMyLockerButton();
-
-        // Click the button to confirm successful registration
-        // confirmationPage.clickGoToMyLockerButton();
-        //confirmationPage = new (WebTestSupport.currentDriver());
-        //confirmationPage.waitForGoToMyLockerButton();
-        //confirmationPage.clickGoToMyLockerButton();
-
-        // Wait for the confirmation message to be visible
-      //   WebDriverWait wait = new WebDriverWait(WebTestSupport.currentDriver(), Duration.ofSeconds(10));
-        // log.debug("ZZZZ Waiting for the confirmation message to become visible...");
-        //confirmationPage.clickGoToMyLockerButton();
-        //wait.until(ExpectedConditions.visibilityOf(
-
-        // Retrieve and assert the confirmation message
-        // String actualConfirmationMessage = registrationConfirmationPage.getConfirmationMessage().getText();
-        //log.debug("Actual confirmation message: {}", actualConfirmationMessage);
-
-        //Assertions.assertEquals(expectedConfirmationMessage, actualConfirmationMessage, "The confirmation message did not match.");
-        LogUtil.logMethodExit(); // Log method exit
-
-    }
-
-
-    @Then("the {string} field should be highlighted as required")
-    public void requiredField(String requiredField) {
-        LogUtil.logMethodEntry(); // Log method entry
-
-        // Check if the requiredField exists in the error messages
-        List<String> missingFields = registrationPage.missingFields();
-        assertThat(missingFields).contains(requiredField);
-        LogUtil.logMethodExit();
-    }
-
-    @Then("I should see {string}")
-    public void i_should_see(String expectedResult) {
-        LogUtil.logMethodEntry(); // Log method entry
-
-        List<String> checkUnselectedCheckboxes= registrationPage.checkUnselectedCheckboxes();
-        assertThat(checkUnselectedCheckboxes).contains(expectedResult);
-        LogUtil.logMethodExit();
-    }
-
-
-    @Then("I should be given access to her account")
-    public void iShouldBeGivenAccessToHerAccount() {
-        //CurrentUserPanel currentUser = new CurrentUserPanel(WebTestSupport.currentDriver());
-        //assertEquals(frequentFlyer.email, currentUser.email());
-    }
-    */
 
 }
 

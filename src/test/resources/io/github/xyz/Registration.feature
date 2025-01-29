@@ -19,7 +19,7 @@ Business Need: Registration Functionality
       Examples:
         | FirstName | LastName | Email | ConfirmEmail | Password  | PasswordConfirm | DateOfBirth | AcceptTerms | AgeAccept | AgreeToCodeOfEthics | ExpectedResult                                            |
         | a         | z        | a     | a            | abc123sa  | abc123sa        | 01/03/1971  | true        | true      | true                | THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND |
-        | az        | bb       | b     | b            | password1 | password1       | 12/31/1990  | true        | true      | true                | THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND |
+        | z         | z        | b     | b            | password1 | password1       | 12/31/1990  | true        | true      | true                | THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND |
 
     Scenario Outline: Registration fails due to missing or invalid details
       When I fill in "<FirstName>", "<LastName>", "<Email>", "<ConfirmEmail>", "<Password>", "<PasswordConfirm>", and "<DateOfBirth>"
